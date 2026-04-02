@@ -437,10 +437,10 @@ export const UI = () => {
         >
           {/* We are the best{" "} */}
           {isMobile
-            ? `Soho House is a place for our diverse membership to connect, grow, have fun, and make an impact.`
-            : `Soho House is a place for our diverse membership to connect, grow, have fun, and make an impact.
-          From the beginning and throughout our 30-year history, our members have always been at the heart of 
-          everything we do.`}
+            ? `Ánima Village reúne más de 84 marcas exclusivas, experiencias gastronómicas, cafés y espacios para activar el cuerpo y la mente.`
+            : `Ánima Village reúne más de 84 marcas exclusivas, experiencias gastronómicas, cafés y espacios para activar el cuerpo y la mente.
+          Celebra lo mejor de la vida: la naturaleza, el bienestar, la gastronomía, el arte y la comunidad.`}
+
           {/* <span className="text-[#FFFEF7]">lifestyle development</span> in Los
           Cabos */}
         </motion.p>

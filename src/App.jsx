@@ -2228,8 +2228,11 @@ function App() {
           <UI />
           <div
             // className="fixed inset-0 w-screen h-screen overflow-hidden"
-            className="fixed inset-0 z-0 w-screen touch-pan-y overflow-y-auto overflow-x-hidden overscroll-y-contain"
-            style={{ backgroundColor: "#2E3641" }}
+            className="fixed inset-0 z-0 w-screen min-h-[100dvh] touch-pan-y overflow-y-scroll overflow-x-hidden overscroll-y-contain"
+            style={{
+              backgroundColor: "#2E3641",
+              WebkitOverflowScrolling: "touch",
+            }}
           >
             {/* <Canvas
               dpr={[1, 2]}
@@ -2258,10 +2261,13 @@ function App() {
               <color attach="background" args={["#2E3641"]} />
               <LoadingGate /> */}
 
-            <div className="relative h-[350vh] w-screen">
+            <div className="relative h-[350vh] w-screen touch-pan-y">
               <Canvas
-                className="block h-full w-full"
+                className="block h-full w-full touch-pan-y"
                 dpr={[1, 2]}
+                onCreated={({ gl }) => {
+                  gl.domElement.style.touchAction = "pan-y";
+                }}
                 gl={{
                   antialias: true,
                   toneMapping: THREE.ACESFilmicToneMapping,

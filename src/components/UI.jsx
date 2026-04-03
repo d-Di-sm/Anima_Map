@@ -684,7 +684,8 @@ export const UI = () => {
           transition={{ type: "spring", stiffness: 260, damping: 24 }}
           // className="fixed left-4 top-1/2 -translate-y-1/2 z-20 w-52 scale-[1.5] origin-center bg-transparent border border-white/30 rounded-xl p-4 flex flex-col gap-3 pointer-events-auto"
 
-          className="fixed left-4 top-1/2 z-20 w-60 origin-center bg-transparent border-2 border-[#FFFEF7] rounded-xl p-2 py-1 flex flex-col gap-2 pointer-events-auto"
+          className="fixed left-4 top-1/2 z-20 w-60 max-h-[min(80vh,100%)] origin-center overflow-y-auto overflow-x-hidden overscroll-contain bg-transparent border-2 border-[#FFFEF7] rounded-xl p-2 py-1 flex flex-col gap-2 pointer-events-auto"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <div className="flex py-1 items-center justify-between">
             <p className="text-lg font-semibold">Residences</p>

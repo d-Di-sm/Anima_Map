@@ -321,6 +321,9 @@ export const Experience = () => {
           controls.current.touches.one = ACTION.NONE;
           controls.current.touches.two = ACTION.NONE;
           controls.current.touches.three = ACTION.NONE;
+
+          // Sin esto el canvas sigue con touch-action:none (camera-controls) y el scroll táctil falla.
+          controls.current.enabled = false;
         }
       }
     });
@@ -335,6 +338,25 @@ export const Experience = () => {
     }
     playTransition();
   }, [sectionCam]);
+
+
+  useEffect(() => {
+    const t = window.setTimeout(() => {
+      if (!controls.current) return;
+      const ACTION = controls.current.constructor?.ACTION;
+      if (!ACTION) return;
+      controls.current.touches.two = ACTION.NONE;
+      controls.current.enabled = false;
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  // @react-three/drei no llama a update() si enabled=false; la cámara programática (setLookAt) sí lo necesita.
+  useFrame((_, delta) => {
+    if (controls.current) {
+      controls.current.update(delta);
+    }
+  });
 
   return (
     <>
